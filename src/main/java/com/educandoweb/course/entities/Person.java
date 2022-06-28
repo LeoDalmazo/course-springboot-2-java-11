@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,7 +23,8 @@ public class Person implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 	
